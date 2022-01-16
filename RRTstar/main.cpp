@@ -4,7 +4,7 @@
 #include <vector>
 #include<array>
 #include "include/matplotlibcpp.h"
-#include "include/RRT.h"
+#include "include/RRTstar.h"
 #include "include/bezier_curve.h"
 
 namespace plt = matplotlibcpp;
@@ -66,7 +66,7 @@ int main()
     obstract_line(ob, 35, 35, 15, 40);
     //obstract_line(ob, 10, 30, 43, 13);
 
-    ctr::RRT rrt;
+    ctr::RRTstar rrt_star;
 
     for(int i=0; i<ob.size(); i++){
         ob_x.push_back(ob[i][0]);
@@ -86,7 +86,7 @@ int main()
     // Add graph title
     plt::title("RRT");
 
-    rrt.planning(path_x, path_y, ini_x[0], ini_y[0], goal_x[0], goal_y[0], ob_x, ob_y);
+    rrt_star.planning(path_x, path_y, ini_x[0], ini_y[0], goal_x[0], goal_y[0], ob_x, ob_y);
     /*bezier_curve bezier;
 
     int node;
